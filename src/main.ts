@@ -32,7 +32,7 @@ async function bootstrap() {
   await app.listen(process.env.SERVER_PORT || DEFAULT_PORT);
 
   console.log(
-    `🚀 Server is running on http://localhost:${process.env.SERVER_PORT ?? DEFAULT_PORT}`
+    `🚀 Server is running on http://localhost:${process.env.SERVER_PORT ?? DEFAULT_PORT}/${process.env.BASE_PATH ?? ''}`
   );
 }
 

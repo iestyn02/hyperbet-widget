@@ -116,8 +116,8 @@ export class BetsService implements OnModuleInit {
         console.warn('test');
         this.addRandomBet();
       },
-      10 * 60 * 1000
-      // 10 * 1000 // dev
+      // 10 * 60 * 1000
+      10 * 1000 // dev
     );
   }
 
