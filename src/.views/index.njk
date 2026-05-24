@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ basePath }}/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js"></script>
     <script src="https://unpkg.com/htmx-ext-sse@2.2.4/dist/sse.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,6 @@
             {% include "partials/_filters.njk" %}
         </div>
 
-        {{ basePath }}
         <div class="bets">
             <table class="bets__table">
                 <thead class="bets__header">
@@ -53,6 +52,6 @@
             {% include "partials/_pagination.njk" %}
         </div>
     </div>
-    <script src="{{ basePath }}/js/app.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>
