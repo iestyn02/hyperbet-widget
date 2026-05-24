@@ -4,15 +4,19 @@ A server-rendered "Recent Bets" widget for a fictional iGaming player. Built as 
 
 ## Stack
 
-| Layer | Choice |
-|---|---|
-| Backend | NestJS (TypeScript) |
-| Templating | Nunjucks |
-| Hypermedia | HTMX 2 + htmx-ext-sse |
-| Styling | Vanilla CSS |
-| Data | In-memory — 75 seeded bets, one added every 10 s |
+| Layer      | Choice                                           |
+| ---------- | ------------------------------------------------ |
+| Backend    | NestJS (TypeScript)                              |
+| Templating | Nunjucks                                         |
+| Hypermedia | HTMX 2 + htmx-ext-sse                            |
+| Styling    | Vanilla CSS                                      |
+| Data       | In-memory — 75 seeded bets, one added every 10 s |
 
 No database, no client-side framework.
+
+### Live Demo
+
+https://demo.codebrew.cc/3b408cc8
 
 ## Running it
 
@@ -21,16 +25,16 @@ npm install
 npm run start:dev
 ```
 
-Open [http://localhost:3000/my-app](http://localhost:3000/my-app).
+Open [http://localhost:3000/](http://localhost:3000).
 
 ### Environment variables
 
 Both optional. The app works out of the box without either.
 
-| Variable | Default | Effect |
-|---|---|---|
-| `BASE_PATH` | _(empty)_ | URL prefix — e.g. `BASE_PATH=my-app` puts the app at `/my-app` |
-| `SERVER_PORT` | `3000` | Port to listen on |
+| Variable      | Default   | Effect                                                         |
+| ------------- | --------- | -------------------------------------------------------------- |
+| `BASE_PATH`   | _(empty)_ | URL prefix — e.g. `BASE_PATH=my-app` puts the app at `/my-app` |
+| `SERVER_PORT` | `3000`    | Port to listen on                                              |
 
 ## Trade-offs
 
