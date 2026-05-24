@@ -111,14 +111,15 @@ export class BetsService implements OnModuleInit {
   readonly betCreated$ = new Subject<Bet>();
 
   onModuleInit() {
-    setInterval(
-      () => {
-        console.warn('test');
-        this.addRandomBet();
-      },
-      // 10 * 60 * 1000
-      10 * 1000 // dev
-    );
+    const local = process.env.PRODUCTION === 'false';
+
+    const interval = local
+      ? 10 * 1000 // 10 secs (local development testing)
+      : 10 * 60 * 1000; // 10 mins
+
+    setInterval(() => {
+      this.addRandomBet();
+    }, interval);
   }
 
   public getProfile(): PlayerProfile {
