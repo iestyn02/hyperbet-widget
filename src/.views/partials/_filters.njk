@@ -1,0 +1,28 @@
+<span class="filter__label">Filter:</span>
+
+<button
+  class="filter__button{{ ' filter__button--active' if filter == 'all' }}"
+  hx-get="{{ basePath }}/bets?filter=all&page=1"
+  hx-target="#betsBody"
+  hx-swap="innerHTML"
+  hx-push-url="{{ basePath }}/?filter=all&page=1">
+  All
+</button>
+
+<button
+  class="filter__button{{ ' filter__button--active' if filter == 'win' }}"
+  hx-get="{{ basePath }}/bets?filter=win&page=1"
+  hx-target="#betsBody"
+  hx-swap="innerHTML"
+  hx-push-url="{{ basePath }}/?filter=win&page=1">
+  Wins
+</button>
+
+<button
+  class="filter__button{{ ' filter__button--active' if filter == 'loss' }}"
+  hx-get="{{ basePath }}/bets?filter=loss&page=1"
+  hx-target="#betsBody"
+  hx-swap="innerHTML"
+  hx-push-url="{{ basePath }}/?filter=loss&page=1">
+  Losses
+</button>

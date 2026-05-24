@@ -1,0 +1,23 @@
+{% if totalPages > 1 %}
+<button
+  class="pagination__button"
+  hx-get="{{ basePath }}/bets?filter={{ filter }}&page={{ page - 1 }}"
+  hx-target="#betsBody"
+  hx-swap="innerHTML"
+  hx-push-url="{{ basePath }}/?filter={{ filter }}&page={{ page - 1 }}"
+  {% if not hasPrev %}disabled{% endif %}>
+  &larr; Previous
+</button>
+
+<span class="pagination__info">Page {{ page }} of {{ totalPages }}</span>
+
+<button
+  class="pagination__button"
+  hx-get="{{ basePath }}/bets?filter={{ filter }}&page={{ page + 1 }}"
+  hx-target="#betsBody"
+  hx-swap="innerHTML"
+  hx-push-url="{{ basePath }}/?filter={{ filter }}&page={{ page + 1 }}"
+  {% if not hasNext %}disabled{% endif %}>
+  Next &rarr;
+</button>
+{% endif %}

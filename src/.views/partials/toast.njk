@@ -1,0 +1,19 @@
+<div id="bet-toast" class="toast" role="alert" aria-live="polite">
+    <p class="toast__message">A new bet has been placed</p>
+    <div class="toast__actions">
+        <button class="toast__btn toast__btn--refresh"
+            hx-get="{{ basePath }}/bets?filter=all&page=1"
+            hx-target="#betsBody"
+            hx-swap="innerHTML"
+            hx-push-url="{{ basePath }}/?filter=all&page=1"
+            data-toast-action="refresh"
+        >Refresh</button>
+        <button class="toast__btn toast__btn--dismiss" data-toast-action="dismiss">Dismiss</button>
+    </div>
+</div>
+
+{# We need to update the stats in header, so using swap via oob 
+here since this is tied with SSE Event change #}
+<div class="header__stats" id="header-stats" hx-swap-oob="true">
+    {% include "partials/header-stats.njk" %}
+</div>

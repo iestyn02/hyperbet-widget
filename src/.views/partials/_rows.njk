@@ -1,0 +1,34 @@
+{% for bet in bets %}
+<tr class="bets__row bets__row--{{ bet.result }}">
+  <td class="bets__cell" data-label="Game">
+    <div class="bets__game">{{ bet.game_name }}</div>
+    <span class="bets__category bets__category--{{ bet.game_category }}">{{ bet.game_category }}</span>
+  </td>
+  <td class="bets__cell" data-label="Stake">
+    <span class="bets__amount">€{{ bet.stake }}</span>
+  </td>
+  <td class="bets__cell" data-label="Payout">
+    {% if bet.result == 'win' %}
+      <span class="bets__amount">€{{ bet.payout }}</span>
+      <div class="bets__multiplier">{{ bet.multiplier }}</div>
+    {% else %}
+      <span class="bets__amount bets__amount--muted">—</span>
+    {% endif %}
+  </td>
+  <td class="bets__cell" data-label="Result">
+    <span class="bets__result bets__result--{{ bet.result }}">
+      <span class="bets__result-indicator"></span>
+      {{ bet.result }}
+    </span>
+  </td>
+  <td class="bets__cell" data-label="Time">
+    <span class="bets__time">{{ bet.placed_at_label }}</span>
+  </td>
+</tr>
+{% else %}
+<tr class="bets__row">
+  <td class="bets__cell" colspan="5" style="text-align: center; color: #606060; padding: 48px 24px;">
+    No bets found
+  </td>
+</tr>
+{% endfor %}

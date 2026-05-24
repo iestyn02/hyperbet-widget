@@ -1,0 +1,21 @@
+<header class="header">
+    <div class="header__top">
+        <a href="/" class="header__logo">
+            <img src="https://res.cloudinary.com/dzpt57igj/image/upload/v1779630393/logo2_qrav4g.png" />
+        </a>
+    </div>
+
+    <div class="header__profile">
+        <div class="header__avatar">
+            <img src="{{ player.avatarSeed }}" alt="Player Avatar"
+                class="header__avatar-img">
+        </div>
+        <div class="header__player-info">
+            <h1 class="header__player-name">{{ player.name }}</h1>
+            <p class="header__player-id">Player ID: {{ player.playerId }}</p>
+        </div>
+        <div class="header__stats" id="header-stats">
+            {% include "partials/header-stats.njk" %}
+        </div>
+    </div>
+</header>
