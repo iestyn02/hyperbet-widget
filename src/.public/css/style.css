@@ -1,3 +1,55 @@
+:root {
+    /* — Palette — */
+    --clr-green:      #4caf7b;
+    --clr-green-lite: #5bc88c;
+    --clr-green-dim:  #80c895;
+    --clr-red:        #ef4444;
+    --bg-base:        #0a1f1a;
+
+    /* Raw RGB channels — use as: rgb(var(--rgb-*) / 0.15) */
+    --rgb-green: 76 175 123;
+    --rgb-red:   239 68 68;
+    --rgb-surf:  20 35 30;
+    --rgb-toast: 13 38 35;
+
+    /* — Surfaces — */
+    --bg-page:    linear-gradient(135deg, #0a1f1a 0%, #0d2623 100%);
+    --bg-surf:    rgb(var(--rgb-surf) / 0.8);
+    --bg-surf-hi: rgb(var(--rgb-surf) / 0.9);
+    --bg-toast:   rgb(var(--rgb-toast) / 0.97);
+
+    /* — Text scale — */
+    --txt:        #e0e0e0;
+    --txt-muted:  #a0a0a0;
+    --txt-subtle: #808080;
+    --txt-faint:  #606060;
+    --txt-ghost:  #505050;
+
+    /* — Category badge pairs — */
+    --cat-slots:    #c084fc;  --cat-slots-bg:  rgba(168, 85,  247, 0.15);
+    --cat-table:    #60a5fa;  --cat-table-bg:  rgba(96,  165, 250, 0.15);
+    --cat-live:     #fb923c;  --cat-live-bg:   rgba(251, 146, 60,  0.15);
+    --cat-crash:    #f87171;  --cat-crash-bg:  rgba(248, 113, 113, 0.15);
+    --cat-other:    #9ca3af;  --cat-other-bg:  rgba(156, 163, 175, 0.15);
+
+    /* — Typography — */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    --font-mono: 'Roboto Mono', 'Courier New', monospace;
+
+    /* — Border radius — */
+    --r-xs: 3px;
+    --r-sm: 4px;
+    --r-md: 6px;
+    --r-lg: 8px;
+    --r-xl: 12px;
+
+    /* — Layout — */
+    --max-w: 1200px;
+
+    /* — Motion — */
+    --ease: 0.2s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,23 +57,23 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-    background: linear-gradient(135deg, #0a1f1a 0%, #0d2623 100%);
-    color: #e0e0e0;
+    font-family: var(--font-sans);
+    background: var(--bg-page);
+    color: var(--txt);
     min-height: 100vh;
     padding: 16px;
 }
 
 /* Header */
 .header {
-    max-width: 1200px;
+    max-width: var(--max-w);
     margin: 0 auto 32px;
-    border-bottom: 1px solid rgba(76, 175, 123, 0.1);
+    border-bottom: 1px solid rgb(var(--rgb-green) / 0.1);
 }
 
 .header__top {
     padding: 16px 0;
-    border-bottom: 1px solid rgba(76, 175, 123, 0.08);
+    border-bottom: 1px solid rgb(var(--rgb-green) / 0.08);
 }
 
 .header__logo {
@@ -32,7 +84,7 @@ body {
     font-weight: 700;
     color: #fff;
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    transition: opacity var(--ease);
     width: fit-content;
 }
 
@@ -60,11 +112,11 @@ body {
 .header__avatar-img {
     width: 80px;
     height: 80px;
-    border-radius: 12px;
-    border: 2px solid #4caf7b;
-    background: rgba(76, 175, 123, 0.1);
+    border-radius: var(--r-xl);
+    border: 2px solid var(--clr-green);
+    background: rgb(var(--rgb-green) / 0.1);
     display: block;
-    box-shadow: 0 4px 12px rgba(76, 175, 123, 0.2);
+    box-shadow: 0 4px 12px rgb(var(--rgb-green) / 0.2);
 }
 
 .header__player-info {
@@ -81,7 +133,7 @@ body {
 
 .header__player-id {
     font-size: 13px;
-    color: #80c895;
+    color: var(--clr-green-dim);
     margin: 0;
     font-weight: 500;
 }
@@ -99,14 +151,14 @@ body {
 .header__stat-value {
     font-size: 24px;
     font-weight: 700;
-    color: #4caf7b;
+    color: var(--clr-green);
     margin-bottom: 4px;
-    font-family: 'Roboto Mono', 'Courier New', monospace;
+    font-family: var(--font-mono);
 }
 
 .header__stat-label {
     font-size: 12px;
-    color: #a0a0a0;
+    color: var(--txt-muted);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin: 0;
@@ -114,7 +166,7 @@ body {
 
 /* Container */
 .container {
-    max-width: 1200px;
+    max-width: var(--max-w);
     margin: 0 auto;
 }
 
@@ -130,7 +182,7 @@ body {
 .filter__label {
     font-size: 14px;
     font-weight: 500;
-    color: #a0a0a0;
+    color: var(--txt-muted);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-right: 8px;
@@ -138,32 +190,32 @@ body {
 
 .filter__button {
     padding: 8px 16px;
-    border: 1px solid #4caf7b;
-    border-radius: 6px;
+    border: 1px solid var(--clr-green);
+    border-radius: var(--r-md);
     background: transparent;
-    color: #4caf7b;
+    color: var(--clr-green);
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--ease);
     text-transform: capitalize;
     white-space: nowrap;
 }
 
 .filter__button:hover {
-    background: rgba(76, 175, 123, 0.1);
+    background: rgb(var(--rgb-green) / 0.1);
 }
 
 .filter__button--active {
-    background: #4caf7b;
-    color: #0a1f1a;
+    background: var(--clr-green);
+    color: var(--bg-base);
 }
 
 /* Table Section */
 .bets {
-    background: rgba(20, 35, 30, 0.8);
-    border: 1px solid rgba(76, 175, 123, 0.15);
-    border-radius: 8px;
+    background: var(--bg-surf);
+    border: 1px solid rgb(var(--rgb-green) / 0.15);
+    border-radius: var(--r-lg);
     overflow: hidden;
     backdrop-filter: blur(10px);
 }
@@ -175,8 +227,8 @@ body {
 
 /* Table Header */
 .bets__header {
-    background: rgba(76, 175, 123, 0.08);
-    border-bottom: 1px solid rgba(76, 175, 123, 0.15);
+    background: rgb(var(--rgb-green) / 0.08);
+    border-bottom: 1px solid rgb(var(--rgb-green) / 0.15);
 }
 
 .bets__header-cell {
@@ -184,10 +236,10 @@ body {
     text-align: left;
     font-size: 12px;
     font-weight: 600;
-    color: #80c895;
+    color: var(--clr-green-dim);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border-right: 1px solid rgba(76, 175, 123, 0.1);
+    border-right: 1px solid rgb(var(--rgb-green) / 0.1);
 }
 
 .bets__header-cell:last-child {
@@ -196,12 +248,12 @@ body {
 
 /* Table Body */
 .bets__row {
-    border-bottom: 1px solid rgba(76, 175, 123, 0.08);
-    transition: background-color 0.2s ease;
+    border-bottom: 1px solid rgb(var(--rgb-green) / 0.08);
+    transition: background-color var(--ease);
 }
 
 .bets__row:hover {
-    background: rgba(76, 175, 123, 0.05);
+    background: rgb(var(--rgb-green) / 0.05);
 }
 
 .bets__row:last-child {
@@ -209,17 +261,16 @@ body {
 }
 
 .bets__row--win .bets__cell:first-child {
-    border-left: 3px solid rgba(76, 175, 123, 0.8);
+    border-left: 3px solid rgb(var(--rgb-green) / 0.8);
 }
 
 .bets__row--loss .bets__cell:first-child {
-    border-left: 3px solid rgba(239, 68, 68, 0.5);
+    border-left: 3px solid rgb(var(--rgb-red) / 0.5);
 }
 
 .bets__cell {
     padding: 16px;
     font-size: 14px;
-    /* border-right: 1px solid rgba(76, 175, 123, 0.08); */
     word-break: break-word;
 }
 
@@ -238,33 +289,33 @@ body {
     font-size: 10px;
     font-weight: 600;
     padding: 2px 6px;
-    border-radius: 3px;
+    border-radius: var(--r-xs);
     margin-top: 5px;
     text-transform: uppercase;
     letter-spacing: 0.4px;
 }
 
-.bets__category--slots  { background: rgba(168, 85,  247, 0.15); color: #c084fc; }
-.bets__category--table  { background: rgba(96,  165, 250, 0.15); color: #60a5fa; }
-.bets__category--live   { background: rgba(251, 146, 60,  0.15); color: #fb923c; }
-.bets__category--crash  { background: rgba(248, 113, 113, 0.15); color: #f87171; }
-.bets__category--other  { background: rgba(156, 163, 175, 0.15); color: #9ca3af; }
+.bets__category--slots { background: var(--cat-slots-bg); color: var(--cat-slots); }
+.bets__category--table { background: var(--cat-table-bg); color: var(--cat-table); }
+.bets__category--live  { background: var(--cat-live-bg);  color: var(--cat-live);  }
+.bets__category--crash { background: var(--cat-crash-bg); color: var(--cat-crash); }
+.bets__category--other { background: var(--cat-other-bg); color: var(--cat-other); }
 
 /* Amounts */
 .bets__amount {
-    font-family: 'Roboto Mono', 'Courier New', monospace;
+    font-family: var(--font-mono);
     font-weight: 600;
     color: #fff;
 }
 
 .bets__amount--muted {
-    color: #505050;
+    color: var(--txt-ghost);
 }
 
 .bets__multiplier {
-    font-family: 'Roboto Mono', 'Courier New', monospace;
+    font-family: var(--font-mono);
     font-size: 11px;
-    color: #4caf7b;
+    color: var(--clr-green);
     opacity: 0.75;
     margin-top: 3px;
 }
@@ -275,7 +326,7 @@ body {
     align-items: center;
     gap: 6px;
     padding: 6px 12px;
-    border-radius: 4px;
+    border-radius: var(--r-sm);
     font-size: 13px;
     font-weight: 600;
     white-space: nowrap;
@@ -283,15 +334,15 @@ body {
 }
 
 .bets__result--win {
-    background: rgba(76, 175, 123, 0.2);
-    color: #4caf7b;
-    border: 1px solid rgba(76, 175, 123, 0.3);
+    background: rgb(var(--rgb-green) / 0.2);
+    color: var(--clr-green);
+    border: 1px solid rgb(var(--rgb-green) / 0.3);
 }
 
 .bets__result--loss {
-    background: rgba(239, 68, 68, 0.2);
-    color: #ef4444;
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    background: rgb(var(--rgb-red) / 0.2);
+    color: var(--clr-red);
+    border: 1px solid rgb(var(--rgb-red) / 0.3);
 }
 
 .bets__result-indicator {
@@ -300,17 +351,12 @@ body {
     border-radius: 50%;
 }
 
-.bets__result--win .bets__result-indicator {
-    background: #4caf7b;
-}
-
-.bets__result--loss .bets__result-indicator {
-    background: #ef4444;
-}
+.bets__result--win .bets__result-indicator  { background: var(--clr-green); }
+.bets__result--loss .bets__result-indicator { background: var(--clr-red); }
 
 /* Timestamp */
 .bets__time {
-    color: #808080;
+    color: var(--txt-subtle);
     font-size: 13px;
     white-space: nowrap;
 }
@@ -319,7 +365,7 @@ body {
 .bets__empty {
     padding: 48px 24px;
     text-align: center;
-    color: #606060;
+    color: var(--txt-faint);
 }
 
 .bets__empty-icon {
@@ -335,7 +381,7 @@ body {
 
 .bets__empty-subtext {
     font-size: 13px;
-    color: #505050;
+    color: var(--txt-ghost);
 }
 
 /* Pagination */
@@ -350,20 +396,20 @@ body {
 
 .pagination__button {
     padding: 10px 16px;
-    border: 1px solid rgba(76, 175, 123, 0.3);
-    border-radius: 6px;
-    background: rgba(76, 175, 123, 0.05);
-    color: #4caf7b;
+    border: 1px solid rgb(var(--rgb-green) / 0.3);
+    border-radius: var(--r-md);
+    background: rgb(var(--rgb-green) / 0.05);
+    color: var(--clr-green);
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--ease);
     white-space: nowrap;
 }
 
 .pagination__button:hover:not(:disabled) {
-    background: rgba(76, 175, 123, 0.15);
-    border-color: rgba(76, 175, 123, 0.5);
+    background: rgb(var(--rgb-green) / 0.15);
+    border-color: rgb(var(--rgb-green) / 0.5);
 }
 
 .pagination__button:disabled {
@@ -372,14 +418,14 @@ body {
 }
 
 .pagination__button--active {
-    background: #4caf7b;
-    color: #0a1f1a;
-    border-color: #4caf7b;
+    background: var(--clr-green);
+    color: var(--bg-base);
+    border-color: var(--clr-green);
 }
 
 .pagination__info {
     font-size: 12px;
-    color: #808080;
+    color: var(--txt-subtle);
     min-width: 120px;
     text-align: center;
 }
@@ -464,14 +510,14 @@ body {
         display: block;
         padding: 16px;
         margin-bottom: 12px;
-        background: rgba(20, 35, 30, 0.9);
-        border: 1px solid rgba(76, 175, 123, 0.15);
-        border-radius: 6px;
+        background: var(--bg-surf-hi);
+        border: 1px solid rgb(var(--rgb-green) / 0.15);
+        border-radius: var(--r-md);
         border-bottom: none;
     }
 
-    .bets__row--win  { border-left: 3px solid rgba(76, 175, 123, 0.8); }
-    .bets__row--loss { border-left: 3px solid rgba(239, 68, 68, 0.5); }
+    .bets__row--win  { border-left: 3px solid rgb(var(--rgb-green) / 0.8); }
+    .bets__row--loss { border-left: 3px solid rgb(var(--rgb-red)   / 0.5); }
 
     .bets__cell {
         display: flex;
@@ -485,28 +531,17 @@ body {
     .bets__cell::before {
         content: attr(data-label);
         font-weight: 600;
-        color: #80c895;
+        color: var(--clr-green-dim);
         font-size: 11px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         min-width: 80px;
     }
 
-    .bets__game::before {
-        content: 'Game';
-    }
-
-    .bets__amount::before {
-        content: '';
-    }
-
-    .bets__result::before {
-        content: '';
-    }
-
-    .bets__time::before {
-        content: 'Time';
-    }
+    .bets__game::before   { content: 'Game'; }
+    .bets__amount::before { content: ''; }
+    .bets__result::before { content: ''; }
+    .bets__time::before   { content: 'Time'; }
 
     .filter {
         margin-bottom: 20px;
@@ -547,11 +582,15 @@ body {
 
     .header {
         margin-bottom: 20px;
-        padding: 12px 0;
+        padding: 0 0;
     }
 
-    .header__logo {
-        font-size: 18px;
+    .header__top {
+        text-align: center;
+    }
+
+    .header__logo img {
+        height: 30px;
     }
 
     .bets__row {
@@ -562,6 +601,14 @@ body {
     .bets__cell {
         padding: 6px 0;
         font-size: 12px;
+    }
+
+    .bets__row .bets__cell:first-child {
+        border-left: none;
+    }
+
+    .bets__category {
+        margin-top: 0px;
     }
 
     .filter__button {
@@ -579,9 +626,9 @@ body {
     align-items: center;
     gap: 12px;
     padding: 14px 16px;
-    background: rgba(13, 38, 35, 0.97);
-    border: 1px solid rgba(76, 175, 123, 0.5);
-    border-radius: 8px;
+    background: var(--bg-toast);
+    border: 1px solid rgb(var(--rgb-green) / 0.5);
+    border-radius: var(--r-lg);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(12px);
     max-width: 360px;
@@ -605,7 +652,7 @@ body {
     flex: 1;
     font-size: 13px;
     font-weight: 500;
-    color: #e0e0e0;
+    color: var(--txt);
     margin: 0;
     white-space: nowrap;
 }
@@ -618,33 +665,33 @@ body {
 
 .toast__btn {
     padding: 5px 10px;
-    border-radius: 4px;
+    border-radius: var(--r-sm);
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all var(--ease);
     white-space: nowrap;
 }
 
 .toast__btn--refresh {
-    background: #4caf7b;
-    color: #0a1f1a;
-    border: 1px solid #4caf7b;
+    background: var(--clr-green);
+    color: var(--bg-base);
+    border: 1px solid var(--clr-green);
 }
 
 .toast__btn--refresh:hover {
-    background: #5bc88c;
-    border-color: #5bc88c;
+    background: var(--clr-green-lite);
+    border-color: var(--clr-green-lite);
 }
 
 .toast__btn--dismiss {
     background: transparent;
-    color: #80c895;
-    border: 1px solid rgba(76, 175, 123, 0.35);
+    color: var(--clr-green-dim);
+    border: 1px solid rgb(var(--rgb-green) / 0.35);
 }
 
 .toast__btn--dismiss:hover {
-    background: rgba(76, 175, 123, 0.1);
+    background: rgb(var(--rgb-green) / 0.1);
 }
 
 @media (max-width: 480px) {
@@ -669,14 +716,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(76, 175, 123, 0.05);
+    background: rgb(var(--rgb-green) / 0.05);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(76, 175, 123, 0.3);
-    border-radius: 4px;
+    background: rgb(var(--rgb-green) / 0.3);
+    border-radius: var(--r-sm);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(76, 175, 123, 0.5);
+    background: rgb(var(--rgb-green) / 0.5);
 }
