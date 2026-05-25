@@ -22,6 +22,7 @@ async function bootstrap() {
   });
 
   nunjucksEnv.addGlobal('basePath', basePath);
+  nunjucksEnv.addGlobal('rand', Date.now());
 
   app.setViewEngine('njk');
 
